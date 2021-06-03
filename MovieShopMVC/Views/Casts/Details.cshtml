@@ -1,0 +1,58 @@
+﻿@model ApplicationCore.Models.Response.CastDetailsResponseModel
+
+
+<h2>
+    Cast Details
+</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        
+
+        <!-- Movie Card row -->
+        <div>
+            <img src="@Model.ProfilePath"
+                 class="w-75 p-0 img-fluid rounded"
+                 alt="@Model.Name" />
+        </div>
+
+    </div>
+    <div class="col-md-4">
+        <div class="row mt-2">
+            <div class="col-12">
+                <h1>
+                    @Model.Name
+                </h1>
+                <div class="col-12 mt-2"> @if (@Model.Gender is "2") { <span>Male</span> } else{ <span>Female</span>}</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<h5>CAST MOVIES</h5>
+
+<div class="rounded">
+    <div class="container-fluid">
+        <div class="row">
+            @foreach (var movie in Model?.Movies)
+            {
+            <div class="col-6 col-lg-3 col-sm-4 col-xl-2">
+                <a asp-controller="Movies" asp-route-id="@movie.Id" asp-action="Details">
+                    <img src="@movie.PosterUrl" class="img-fluid" />
+                </a>
+
+                <a>
+                    @movie.Title
+                </a>
+            </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+
+
+
+        

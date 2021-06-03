@@ -1,0 +1,54 @@
+
+<h2>
+    Cast Details
+</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        
+
+        <!-- Movie Card row -->
+        <div>
+            <img src="{{ castDetails?.profilePath }}"
+            style="width:50%"
+                 alt="@Model.Name" />
+        </div>
+
+    </div>
+    <div class="col-md-4">
+        <div class="row mt-2">
+            <div class="col-12">
+                <h1>
+                    {{ castDetails?.name }}
+                </h1>
+                <!-- <div class="col-12 mt-2"> @if (@Model.Gender is "2") { <span>Male</span> } else{ <span>Female</span>}</div> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<h5>CAST MOVIES</h5>
+
+<div class="rounded">
+    <div class="container-fluid">
+        <div class="row">
+            <ng-container *ngFor="let movie of castDetails?.movies">
+                <!-- <a class="badge bg-primary text-light" asp-action="Genre" asp-route-id="@genre.Id"> -->
+                <div class="col-6 col-lg-3 col-sm-4 col-xl-2">
+                
+                <a href="#"
+                *ngIf="movie"
+                [routerLink]="['/movies/', movie?.id ]"> 
+                <img src="{{ movie?.posterUrl }}" style="width:60%" class="img-fluid" />
+                    <div>
+                        
+                {{ movie?.title }}
+                    </div>
+
+                </a>
+            </div>
+            </ng-container>
+        </div>
+    </div>
+</div>
